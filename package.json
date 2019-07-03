@@ -1,0 +1,21 @@
+{
+  "name": "rest-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compile": "tsc",
+    "serve": "node dist/index.js"
+  },
+  "author": "stuart.zahn@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "@types/express": "^4.17.0",
+    "@types/node": "^12.0.10",
+    "express": "^4.17.1",
+    "lodash": "^4.17.11",
+    "moment": "^2.24.0",
+    "typescript": "^3.5.2",
+    "uuid": "^3.3.2"
+  }
+}
