@@ -16,6 +16,10 @@ export default class EventRepository {
             throw new Error('Event type is missing');
         }
 
+        if (isNil(userId) || isEmpty(userId)) {
+            throw new Error('Event user id is missing');
+        }
+
         const now = moment().unix();
         const eventId = uuidv1();
         const event : IEvent = {

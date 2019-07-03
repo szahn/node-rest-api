@@ -4,6 +4,10 @@ A simple node rest API in Typescript.
 
 ## API
 
+## Setup
+
+Use `NPM` or `Yarn` to install dependencies (`make init`).
+
 ### Start
 
 To start the server, run `make run`
@@ -25,7 +29,7 @@ curl -d '{"email":"stuart.zahn@gmail.com", "password":"123"}' -H "Content-Type: 
 To create an event:
 
 ```bash
-curl -d '{"type":"LOGIN"}' -H "Content-Type: application/json" -X POST http://localhost:3000/events
+curl -d '{"type":"LOGIN"}' -H "x-user-id: user-abc" -H "Content-Type: application/json" -X POST http://localhost:3000/events
 ```
 
 To get all events:
@@ -37,7 +41,7 @@ curl http://localhost:3000/events
 To get events by user:
 
 ```bash
-curl http://localhost:3000/events?userId=abc
+curl http://localhost:3000/events?userId=user-abc
 ```
 
 To get events in the last day:
@@ -45,8 +49,16 @@ To get events in the last day:
 ```bash
 curl http://localhost:3000/events?sinceDays=1
 ```
+
+## Assumptions
+
+One big assumption here is that the user id for event tracking is obtained from a [JWT bearer token](https://tools.ietf.org/html/rfc7523) as the user we want to track events for must be authorized to do so first.
+
+The solution was designed to be compiled in an unix environment, but could also run on Windows.
+
 ## Improvments
 
+- Additional CRUD endpoints as time permits
 - Make data calls async
 - Sanitize input data
 - Add unit tests and mocks

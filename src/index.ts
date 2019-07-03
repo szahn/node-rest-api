@@ -54,7 +54,7 @@ server.post('/events', (req, res) => {
     try{
         const body = req.body;
         const {type} = body;
-        const userId = 'abc'; /*Assume the user id is obtained from the JWT token in authorization token (assuming user is authorized)*/
+        const userId = req.get('x-user-id'); /*The user id should be obtained from JWT token in the authorization header (assuming user is authorized)*/
         var event = eventRepository.create(userId, type);
         res.status(201);
         res.json(event);
